@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oasis des Saveurs — Restaurant</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== NAVIGATION ===================== -->
+<nav id="nav">
+  <a href="#accueil" class="logo">
+    <!-- Emplacement du logo (palmier) -->
+    <img src="images/logo.png" alt="Logo Oasis des Saveurs" class="logo-img">
+    <span class="logo-txt">
+      <em>Oasis</em>
+      <b>des Saveurs</b>
+    </span>
+  </a>
+
+  <div class="nav-links" id="navLinks">
+    <div class="marker" id="marker"></div>
+    <a href="#accueil" class="nav-link active" onmouseenter="moveMarker(this)" onclick="setActive(this); closeMenu();">Accueil</a>
+    <a href="#menu" class="nav-link" onmouseenter="moveMarker(this)" onclick="setActive(this); closeMenu();">Menu</a>
+    <a href="#apropos" class="nav-link" onmouseenter="moveMarker(this)" onclick="setActive(this); closeMenu();">À propos</a>
+    <a href="#avis" class="nav-link" onmouseenter="moveMarker(this)" onclick="setActive(this); closeMenu();">Avis des clients</a>
+    <a href="#contact" class="nav-link" onmouseenter="moveMarker(this)" onclick="setActive(this); closeMenu();">Contact</a>
+  </div>
+
+  <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="nav-overlay" id="navOverlay" onclick="closeMenu()"></div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header id="accueil" class="hero">
+  <div class="hero-bg">
+    <!-- Photo d'ambiance : lanternes, bougies, tajine -->
+    <img src="images/hero.jpg" alt="Ambiance du restaurant Oasis des Saveurs" class="hero-img">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Cuisine orientale, épices et hospitalité</p>
+    <h1>L'excellence culinaire<br>cœur de Fada N'Gourma</h1>
+    <p class="hero-text">Fast-food gourmet, espace glacier, bar rafraîchissant et salon VIP : découvrez une expérience gastronomique unique au cœur de la cité de Yendabili.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-outline">Découvrir le menu</a>
+      <a href="#commande" class="btn-primary">Commander un plat</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== BIENVENUE ===================== -->
+<section id="bienvenue" class="section bienvenue">
+  <div class="bienvenue-img">
+    <!-- Photo d'un plat signature (tajine) -->
+    <img src="images/bienvenue.jpg" alt="Tajine servi à table">
+  </div>
+  <div class="bienvenue-texte">
+    <p class="eyebrow">Bienvenue à</p>
+    <h2>L'Oasis des Saveurs</h2>
+    <p>Au cœur de la cité de Yendabili, une escale gourmande inoubliable.</p>
+    <p>Bienvenue dans votre nouvel écran de douceur et de convivialité. À L'Oasis des Saveurs, nous célébrons la Richesse culinaire en vous proposant des mets savoureux préparés avec passion. Dans un cadre raffiné aux teintes chaleureuses, venez vivre un véritable voyage gustatif qui honore l'hospitalité et l'histoire de notre belle ville.</p>
+    <p>Découvrez notre menu et réservez votre table dès aujourd'hui !</p>
+    <a href="#commande" class="btn-primary">Réserver votre table</a>
+  </div>
+</section>
+
+<!-- ===================== MENU DU JOUR (bande) ===================== -->
+<section class="menu-jour">
+  <div class="menu-jour-inner">
+    <div class="menu-jour-item">
+      <span class="eyebrow">Plat</span>
+      <h4>Tagine d'agneau</h4>
+      <span class="prix">14 000 Fcfa</span>
+    </div>
+    <div class="menu-jour-item">
+      <span class="eyebrow">Fast food</span>
+      <h4>Chawarma poulet</h4>
+      <span class="prix">6 000 Fcfa</span>
+    </div>
+    <div class="menu-jour-item">
+      <span class="eyebrow">Boisson</span>
+      <h4>Thé à la menthe</h4>
+      <span class="prix">2 500 Fcfa</span>
+    </div>
+    <a href="#menu" class="btn-primary">Continuer</a>
+  </div>
+</section>
+
+<!-- ===================== MENU / LA CARTE ===================== -->
+<section id="menu" class="section carte">
+  <div class="section-head">
+    <h2>La Carte</h2>
+    <p>Des produits choisis chaque matin, une carte qui change avec les saisons.</p>
+  </div>
+
+  <div class="carte-tabs">
+    <button class="tab-btn active" data-tab="plats">Plats</button>
+    <button class="tab-btn" data-tab="glaces">Glaces</button>
+    <button class="tab-btn" data-tab="fastfood">Fast food</button>
+    <button class="tab-btn" data-tab="boissons">Boissons</button>
+  </div>
+
+  <div class="carte-grid" id="plats">
+    <article class="plat">
+      <img src="images/attieke.jpg" alt="Tagine d'agneau aux pruneaux">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Attiéké</h3>
+          <span class="prix">1000 Fcfa</span>
+        </div>
+        <p>Bon attiéké, Poisson thon ou poisson fumée .</p>
+      </div>
+    </article>
+
+    <article class="plat">
+      <img src="images/brochette.jpg" alt="Couscous royal">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Brochette </h3>
+          <span class="prix">1000 Fcfa</span>
+        </div>
+        <p>Brochette de viande de mouton</p>
+      </div>
+    </article>
+
+    <article class="plat">
+      <img src="images/poisoon.jpg" alt="Pastilla au poulet">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Poisson Braisé</h3>
+          <span class="prix">1000 Fcfa</span>
+        </div>
+        <p>Poisson braisé et bien mariné.</p>
+      </div>
+    </article>
+
+    <article class="plat">
+      <img src="images/poulet ail.jpg" alt="Salade méchouia">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Poulet Braisé à l'ail</h3>
+          <span class="prix">4500 Fcfa</span>
+        </div>
+        <p>Poivrons grillés, tomates, ogons.</p>
+      </div>
+    </article>
+
+    <article class="plat">
+      <img src="images/spagnetti.jpg" alt="Briouates au fromage">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Spagnetti au soumbala au polet </h3>
+          <span class="prix">6500 Fcfa</span>
+        </div>
+        <p>Poulet , Soumbala .</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="carte-grid" id="glaces" style="display:none;">
+    <article class="plat sans-image">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Glace à la pistache</h3>
+          <span class="prix">3 000 Fcfa</span>
+        </div>
+        <p>Pistaches torréfiées, crème fraîche.</p>
+      </div>
+    </article>
+
+    <article class="plat sans-image">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Glace à la fleur d'oranger</h3>
+          <span class="prix">3 000 Fcfa</span>
+        </div>
+        <p>Parfum délicat, texture onctueuse.</p>
+      </div>
+    </article>
+
+    <article class="plat sans-image">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Sorbet citron menthe</h3>
+          <span class="prix">3 000 Fcfa</span>
+        </div>
+        <p>Frais et acidulé, menthe fraîche.</p>
+      </div>
+    </article>
+
+    <article class="plat sans-image">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Glace au miel et amandes</h3>
+          <span class="prix">4 000 Fcfa</span>
+        </div>
+        <p>Miel de fleurs, amandes effilées grillées.</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="carte-grid" id="fastfood" style="display:none;">
+    <article class="plat sans-image">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Chawarma poulet</h3>
+          <span class="prix">6 000 Fcfa</span>
+        </div>
+        <p>Pain pita, crudités, sauce à l'ail.</p>
+      </div>
+    </article>
+
+    <article class="plat sans-image">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Falafel wrap</h3>
+          <span class="prix">5 000 Fcfa</span>
+        </div>
+        <p>Falafels maison, houmous, légumes croquants.</p>
+      </div>
+    </article>
+
+    <article class="plat sans-image">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Frites épicées</h3>
+          <span class="prix">2 500 Fcfa</span>
+        </div>
+        <p>Épices maison, sauce au choix.</p>
+      </div>
+    </article>
+
+    <article class="plat sans-image">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Sandwich merguez</h3>
+          <span class="prix">4 500 Fcfa</span>
+        </div>
+        <p>Merguez grillée, oignons, sauce harissa.</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="carte-grid" id="boissons" style="display:none;">
+    <article class="plat sans-image">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Thé à la menthe</h3>
+          <span class="prix">2 500 Fcfa</span>
+        </div>
+        <p>Servi dans la tradition, versé de haut.</p>
+      </div>
+    </article>
+
+    <article class="plat sans-image">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Jus d'orange frais</h3>
+          <span class="prix">3 000 Fcfa</span>
+        </div>
+        <p>Pressé minute, sans sucre ajouté.</p>
+      </div>
+    </article>
+
+    <article class="plat sans-image">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Limonade maison</h3>
+          <span class="prix">3 000 Fcfa</span>
+        </div>
+        <p>Citron, menthe fraîche, eau pétillante.</p>
+      </div>
+    </article>
+
+    <article class="plat sans-image">
+      <div class="plat-info">
+        <div class="plat-titre">
+          <h3>Café arabe</h3>
+          <span class="prix">2 000 Fcfa</span>
+        </div>
+        <p>Cardamome, torréfaction douce.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================== À PROPOS ===================== -->
+<section id="apropos" class="section-apropos">
+
+  <div class="section-head center">
+    <p class="eyebrow">À propos</p>
+    <h2>Ce que nous faisons</h2>
+    <p>Une cuisine ouverte, des produits bruts, un service pensé comme une étape du voyage.</p>
+  </div>
+
+  <!-- Rangées alternées photo / texte -->
+  <div class="apropos-rows">
+    <div class="apropos-row">
+      <div class="apropos-img">
+        <img src="images/fast food.jpg" alt="Épices et ingrédients">
+      </div>
+      <div class="apropos-texte">
+        <span class="story-num">01</span>
+        <p>Le Fast-Food Redéfinie à Fada N'Gourma</p>
+
+<p>À L'Oasis des Saveurs, nous réinventons la restauration rapide en alliant rapidité, qualité et générosité. Situé au cœur de la cité de Yendabili, notre espace fast-food vous propose une sélection gourmande préparée à la minute avec des ingrédients frais et savoureux.</p>
+      </div>
+    </div>
+
+    <div class="apropos-row reverse">
+      <div class="apropos-img">
+        <img src="images/glace.jpg" alt="Tajine en cuisson">
+      </div>
+      <div class="apropos-texte">
+        <span class="story-num">02</span>
+        <p>Pour adoucir les journées ensoleillées de la cité de Yendabili, L'Oasis des Saveurs vous invite à découvrir sa sélection de crèmes glacées et sorbets gourmands. Élaborées avec soin pour offrir des textures onctueuses et des parfums riches, nos glaces sont le plaisir idéal pour toute la famille.</p>
+      </div>
+    </div>
+
+    <div class="apropos-row">
+      <div class="apropos-img">
+        <img src="images/vip.jpg" alt="Dressage d'un plat en salle">
+      </div>
+      <div class="apropos-texte">
+        <span class="story-num">03</span>
+        <p>Notre Espace VIP</p>
+
+<p>L'Excellence et la Discrétion au Cœur de la Cité de Yendabili</p>
+
+<p>Pour vos événements particuliers, vos réunions d'affaires ou vos dîners intimistes, L'Oasis des Saveurs met à votre disposition son Espace VIP. Un cadre d'exception, climatisé et décoré avec soin, pensé pour vous offrir un confort absolu et un service sur-mesure.</p>
+      </div>
+    </div>
+
+    <div class="apropos-row reverse">
+      <div class="apropos-img">
+        <img src="images/bar.jpg" alt="Cuisine ouverte du restaurant">
+      </div>
+      <div class="apropos-texte">
+        <span class="story-num">04</span>
+        <p>Des Boissons pour Tous les Goûts à la Cité de Yendabili</p>
+
+<p>Pour accompagner vos repas ou simplement partager un moment convivial entre amis, notre espace bar vous propose une large sélection de boissons fraîches, réconfortantes et créatives.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Galerie complémentaire -->
+  <div class="apropos-grid">
+    <img src="images/restaurant.jpg" alt="Salle du restaurant">
+    <img src="images/glacier.jpg" alt="Lanternes et bougies">
+    <img src="images/lounge.jpg" alt="Le chef en cuisine">
+    <img src="images/assiette.jpg" alt="Terrasse en soirée">
+    <img src="images/poulet.jpg" alt="Détail d'un plat">
+    <img src="images/ambiance.jpg" alt="Ambiance de la salle">
+  </div>
+</section>
+
+<!-- ===================== AVIS DES CLIENTS ===================== -->
+<section id="avis" class="section avis">
+  <div class="section-head center">
+    <p class="eyebrow">Avis des clients</p>
+    <h2>Ils ont voyagé avec nous</h2>
+  </div>
+  <div class="avis-grid" id="avisGrid">
+    <article class="avis-carte">
+      <div class="etoiles">★★★★★</div>
+      <p>« Le tagine d'agneau est incroyable, et l'ambiance avec les lanternes est vraiment dépaysante. »</p>
+      <span class="avis-nom">— Sophie M.</span>
+    </article>
+    <article class="avis-carte">
+      <div class="etoiles">★★★★★</div>
+      <p>« Service chaleureux, pastilla parfaite. On se sent vraiment en voyage le temps d'un repas. »</p>
+      <span class="avis-nom">— Karim B.</span>
+    </article>
+    <article class="avis-carte">
+      <div class="etoiles">★★★★☆</div>
+      <p>« Très bonne adresse pour un couscous royal généreux. Le décor est superbe le soir. »</p>
+      <span class="avis-nom">— Claire D.</span>
+    </article>
+  </div>
+
+  <div class="avis-form-wrap">
+    <h3>Laisser un avis</h3>
+    <form class="form-avis" onsubmit="ajouterAvis(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="avisNom">Nom</label>
+          <input type="text" id="avisNom" name="avisNom" required placeholder="Votre nom">
+        </div>
+        <div class="form-group">
+          <label for="avisNote">Note</label>
+          <select id="avisNote" name="avisNote">
+            <option value="5">★★★★★</option>
+            <option value="4">★★★★☆</option>
+            <option value="3">★★★☆☆</option>
+            <option value="2">★★☆☆☆</option>
+            <option value="1">★☆☆☆☆</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="avisTexte">Votre avis</label>
+        <textarea id="avisTexte" name="avisTexte" rows="3" required placeholder="Partagez votre expérience..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Publier mon avis</button>
+      <p class="form-confirm" id="avisConfirm"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== COMMANDE ===================== -->
+<section id="commande" class="section commande">
+  <div class="section-head">
+    <h2>Commander un plat</h2>
+    <p>Choisissez votre plat, nous préparons votre commande sur place, à emporter ou en livraison.</p>
+  </div>
+  <form class="form-commande" onsubmit="envoyerCommande(event)">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nom">Nom complet</label>
+        <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+      </div>
+      <div class="form-group">
+        <label for="tel">Téléphone</label>
+        <input type="tel" id="tel" name="tel" required placeholder="Votre numéro">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group form-group-large">
+        <label for="plat">Plat</label>
+        <select id="plat" name="plat" required>
+          <option value="">Choisir un plat</option>
+          <optgroup label="Plats">
+            <option>Tagine d'agneau aux pruneaux — 14 000 Fcfa</option>
+            <option>Couscous royal — 13 500 Fcfa</option>
+            <option>Pastilla au poulet — 12 500 Fcfa</option>
+            <option>Salade méchouia — 5 000 Fcfa</option>
+            <option>Briouates au fromage — 6 000 Fcfa</option>
+          </optgroup>
+          <optgroup label="Glaces">
+            <option>Glace à la pistache — 3 000 Fcfa</option>
+            <option>Glace à la fleur d'oranger — 3 000 Fcfa</option>
+            <option>Sorbet citron menthe — 3 000 Fcfa</option>
+            <option>Glace au miel et amandes — 4 000 Fcfa</option>
+          </optgroup>
+          <optgroup label="Fast food">
+            <option>Chawarma poulet — 6 000 Fcfa</option>
+            <option>Falafel wrap — 5 000 Fcfa</option>
+            <option>Frites épicées — 2 500 Fcfa</option>
+            <option>Sandwich merguez — 4 500 Fcfa</option>
+          </optgroup>
+          <optgroup label="Boissons">
+            <option>Thé à la menthe — 2 500 Fcfa</option>
+            <option>Jus d'orange frais — 3 000 Fcfa</option>
+            <option>Limonade maison — 3 000 Fcfa</option>
+            <option>Café arabe — 2 000 Fcfa</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="quantite">Quantité</label>
+        <input type="number" id="quantite" name="quantite" min="1" value="1" required>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="mode">Mode</label>
+        <select id="mode" name="mode">
+          <option>Sur place</option>
+          <option>À emporter</option>
+          <option>Livraison</option>
+        </select>
+      </div>
+      <div class="form-group form-group-large">
+        <label for="adresse">Adresse (si livraison)</label>
+        <input type="text" id="adresse" name="adresse" placeholder="Votre adresse">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="message">Message (optionnel)</label>
+      <textarea id="message" name="message" rows="3" placeholder="Allergies, préférences..."></textarea>
+    </div>
+
+    <button type="submit" class="btn-primary">Confirmer la commande</button>
+    <p class="form-confirm" id="formConfirm"></p>
+  </form>
+</section>
+
+<!-- ===================== CONTACT / FOOTER ===================== -->
+<footer id="contact" class="footer">
+  <div class="footer-grid">
+    <div class="footer-bloc footer-brand">
+      <span class="logo-txt">
+        <em>Oasis</em>
+        <b>des Saveurs</b>
+      </span>
+      <p>Fada N'Gourma</p>
+      <p>+226 05014499</p>
+    </div>
+    <div class="footer-bloc">
+      <h3>Liens rapides</h3>
+      <a href="#accueil">Accueil</a>
+      <a href="#menu">Menu</a>
+      <a href="#apropos">À propos</a>
+      <a href="#avis">Avis des clients</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-bloc">
+      <h3>Suivez-nous</h3>
+      <div class="footer-social">
+        <a href="https://www.tiktok.com/@l.oasis.des.saveurs.fada?_r=1&_t=ZS-99o3X1rdE0O" aria-label="TikTok" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M16.6 2h-3.2v13.2c0 1.5-1.2 2.7-2.7 2.7-1.5 0-2.7-1.2-2.7-2.7 0-1.5 1.2-2.7 2.7-2.7.3 0 .6.05.9.14V9.4a6 6 0 0 0-.9-.07A5.9 5.9 0 0 0 4.8 15.2 5.9 5.9 0 0 0 10.7 21a5.9 5.9 0 0 0 5.9-5.9V8.4a8 8 0 0 0 4.6 1.45V6.65a4.8 4.8 0 0 1-2.9-1.4A4.8 4.8 0 0 1 16.9 2h-.3Z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/share/1PGjFmqkUZ/?mibextid=wwXIfr" aria-label="Facebook" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M13.5 21v-7.6h2.55l.38-2.96h-2.93V8.55c0-.86.24-1.44 1.47-1.44h1.57V4.46C16.2 4.4 15.3 4.32 14.26 4.32c-2.17 0-3.66 1.32-3.66 3.75v2.37H8.05v2.96h2.55V21h2.9Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Oasis des Saveurs — Tous droits réservés</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
